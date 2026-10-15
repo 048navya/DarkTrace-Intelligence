@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@electric-sql/pglite-socket": "0.2.11",
+    "ethers": "^6.17.0"
+  },
+  "name": "darktrace-sih-workspace",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run_repository_tests.mjs"
+  }
+}

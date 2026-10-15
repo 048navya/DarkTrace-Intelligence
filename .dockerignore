@@ -1,0 +1,13 @@
+.git
+**/node_modules
+**/.venv
+**/__pycache__
+**/.env*
+**/.dev.vars
+**/dist
+**/artifacts
+**/cache
+**/secrets
+**/*.zip
+outputs
+darkweb-deanonymization/data/safe_corpus.jsonl

@@ -1,0 +1,1 @@
+-- Sample loading requires CSV normalization. Run scripts/load_samples.py after schema.sql and migrations/001_repository_bridge.sql.

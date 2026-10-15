@@ -1,0 +1,7 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {train,predict,syntheticDocuments,behaviour} from '../lib/learning.ts';
+test('author-disjoint model is reproducible and rejects contaminated inputs',async()=>{const docs=syntheticDocuments();const a=await train(docs,true),b=await train(docs,true);assert.deepEqual(a.weights,b.weights);assert.equal(a.metrics.trainAuthors,4);assert.equal(a.metrics.testAuthors,2);assert.equal(a.metrics.testPairs,15);assert.equal(a.datasetHash,b.datasetHash);assert.equal(predict(a,docs[0].text,docs[1].text).calibrated,false);await assert.rejects(train([...docs,docs[0]],true),/unique/);await assert.rejects(train(docs.map((d,i)=>i===1?{...d,text:docs[0].text}:d),true),/Duplicate/);});
+test('behaviour distinguishes sparse evidence and UTC chronology',()=>{const a={handle:'a',platform:'one',observedAt:'2026-01-01T10:00:00Z'},b={handle:'b',platform:'two',observedAt:'2026-01-02T10:00:00Z'};const result=behaviour([a,b],a,b);assert.equal(result.sufficient,false);assert.equal(result.possibleMigration,true);assert.equal(result.activitySimilarity,1);});
+import {descriptorMismatch} from '../lib/engine.ts';
+test('descriptor mismatches require two supplied observations',()=>{assert(descriptorMismatch('{"advertised":"key-A","observed":"key-B"}'));assert(!descriptorMismatch('{"advertised":"key-A","observed":"key-A"}'));assert(!descriptorMismatch('unstructured note'));});

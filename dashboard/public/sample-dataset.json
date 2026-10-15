@@ -1,0 +1,17 @@
+[
+  {
+    "id": "sample-orbit-01",
+    "handle": "orbit_training",
+    "platform": "University lab",
+    "category": "Other",
+    "observedAt": "2026-09-29T10:00:00.000Z",
+    "text": "This fictional account is part of an authorized classroom exercise. No real person or service is represented.",
+    "wallets": ["DEMO-WALLET-ORBIT"],
+    "pgp": ["DEMO-PGP-ORBIT"],
+    "trusts": [],
+    "service": "",
+    "indicators": [],
+    "entityLead": "",
+    "synthetic": true
+  }
+]

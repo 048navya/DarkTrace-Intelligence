@@ -1,0 +1,62 @@
+[
+  {
+    "id": "repo-post-6b86b273ff34fce19d6b804eff5a3f57",
+    "handle": "arjun_fox",
+    "platform": "Twitter",
+    "category": "Other",
+    "observedAt": "2024-01-01T00:00:00Z",
+    "text": "same deal. fast execution\n\nRepository post: 1 | Source: Bundled synthetic CSV fixture | Original category: Other. Source timezone absent; UTC assumed by bridge.",
+    "wallets": [],
+    "pgp": [],
+    "trusts": [],
+    "service": "",
+    "indicators": [],
+    "entityLead": "",
+    "synthetic": true
+  },
+  {
+    "id": "repo-post-d4735e3a265e16eee03f59718b9b5d03",
+    "handle": "shadow_mehta",
+    "platform": "Reddit",
+    "category": "Other",
+    "observedAt": "2024-01-02T00:00:00Z",
+    "text": "same deal confirmed\n\nRepository post: 2 | Source: Bundled synthetic CSV fixture | Original category: Other. Source timezone absent; UTC assumed by bridge.",
+    "wallets": [],
+    "pgp": [],
+    "trusts": [],
+    "service": "",
+    "indicators": [],
+    "entityLead": "",
+    "synthetic": true
+  },
+  {
+    "id": "repo-post-4e07408562bedb8b60ce05c1decfe3ad",
+    "handle": "rahul_byte",
+    "platform": "Telegram",
+    "category": "Other",
+    "observedAt": "2024-01-03T00:00:00Z",
+    "text": "btc only trusted\n\nRepository post: 3 | Source: Bundled synthetic CSV fixture | Original category: Other. Source timezone absent; UTC assumed by bridge.",
+    "wallets": [],
+    "pgp": [],
+    "trusts": [],
+    "service": "",
+    "indicators": [],
+    "entityLead": "",
+    "synthetic": true
+  },
+  {
+    "id": "repo-post-4b227777d4dd1fc61c6f884f48641d02",
+    "handle": "neha_crypto",
+    "platform": "Twitter",
+    "category": "Other",
+    "observedAt": "2024-01-04T00:00:00Z",
+    "text": "secure drop used\n\nRepository post: 4 | Source: Bundled synthetic CSV fixture | Original category: Other. Source timezone absent; UTC assumed by bridge.",
+    "wallets": [],
+    "pgp": [],
+    "trusts": [],
+    "service": "",
+    "indicators": [],
+    "entityLead": "",
+    "synthetic": true
+  }
+]

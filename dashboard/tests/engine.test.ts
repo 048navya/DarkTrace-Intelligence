@@ -1,0 +1,13 @@
+import {strict as assert} from 'node:assert';
+import {test} from 'node:test';
+import {fixtures,relationships,infrastructure,compare,filterRecords,canonical,hash,csv,pdf} from '../lib/engine.ts';
+const rows=fixtures().map(r=>({...r,digest:'',collectedAt:'',lastScan:''}));
+test('two independent identifier types remain an unverified medium-confidence hypothesis',()=>{const links=relationships(rows);const ember=links.find(r=>r.a.includes('ember')&&r.b.includes('ember'));assert.equal(ember.confidence,'Medium');assert.equal(ember.reasons.length,2);assert.match(ember.conflicts[0],/copied or shared/)});
+test('one shared wallet does not cause account merging or high confidence',()=>{const l=relationships(rows).find(r=>r.a.includes('nova')||r.b.includes('nova'));assert.equal(l.confidence,'Low');assert.match(l.conflicts[0],/Do not merge/);assert.equal(rows.filter(r=>r.category!=='Infrastructure').length,5)});
+test('trust references stay distinct from common identity links',()=>assert.equal(relationships(rows).filter(l=>l.type==='Reported trust').length,2));
+test('origin correlation retains the ambiguous alternative',()=>{const c=infrastructure(rows).find(x=>x.record.id==='demo-ember-atlas')!.candidates;assert.equal(c.length,2);assert.equal(c[0].matches.length,2);assert.equal(c[1].confidence,'Low')});
+test('short writing samples produce insufficient evidence',()=>{const c=compare(rows[0],rows[1]);assert.equal(c.sufficient,false);assert.match(c.assessment,/Insufficient/)});
+test('date filters apply to observations, not ingestion time',()=>{const d=rows[0].observedAt.slice(0,10);assert.deepEqual(filterRecords(rows,'',d,d,''),[rows[0]])});
+test('integrity detects content changes',async()=>{const before=await hash(canonical(rows[0]));const after=await hash(canonical({...rows[0],text:'altered'}));assert.notEqual(before,after)});
+test('CSV neutralizes spreadsheet formulas',()=>assert.match(csv([{...rows[0],handle:'=HYPERLINK("bad")'}]),/"'=HYPERLINK/));
+test('PDF supports multi-page reports with valid offsets',()=>{const out=pdf(Array.from({length:120},(_,i)=>'Record '+i));assert.match(out,/\/Count 3/);const offset=Number(out.split('startxref\n')[1].split('\n')[0]);assert.equal(out.slice(offset,offset+4),'xref')});

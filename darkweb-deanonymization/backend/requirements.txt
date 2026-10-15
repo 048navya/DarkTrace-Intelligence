@@ -1,0 +1,10 @@
+# Direct dependency versions exercised by the integration tests. Python 3.12.
+fastapi==0.142.1
+uvicorn==0.54.0
+psycopg2-binary==2.9.13
+pydantic==2.13.5
+python-dotenv==1.2.3
+numpy==2.5.3
+pandas==3.0.6
+scikit-learn==1.9.1
+web3==8.0.0
